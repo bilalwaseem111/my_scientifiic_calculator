@@ -18,7 +18,7 @@ const Calculator = () => {
       if (!input.trim()) return;
       const result = eval(input);
       setInput(result.toString());
-    } catch (error) {
+    } catch {
       setInput("Error");
     }
   };
@@ -33,53 +33,16 @@ const Calculator = () => {
 
   const toRadians = (angle) => (angle * Math.PI) / 180;
 
-  // ✅ Cleaned up functions with improved handling
   const scientificFunctions = [
-    {
-      label: "sin",
-      func: (val) => Math.sin(toRadians(val)),
-      needsInput: true,
-    },
-    {
-      label: "cos",
-      func: (val) => Math.cos(toRadians(val)),
-      needsInput: true,
-    },
-    {
-      label: "tan",
-      func: (val) => Math.tan(toRadians(val)),
-      needsInput: true,
-    },
-    {
-      label: "log",
-      func: (val) => (val > 0 ? Math.log10(val) : "Error"),
-      needsInput: true,
-    },
-    {
-      label: "ln",
-      func: (val) => (val > 0 ? Math.log(val) : "Error"),
-      needsInput: true,
-    },
-    {
-      label: "√",
-      func: (val) => (val >= 0 ? Math.sqrt(val) : "Error"),
-      needsInput: true,
-    },
-    {
-      label: "x²",
-      func: (val) => Math.pow(val, 2),
-      needsInput: true,
-    },
-    {
-      label: "π",
-      func: () => Math.PI,
-      needsInput: false,
-    },
-    {
-      label: "e",
-      func: () => Math.E,
-      needsInput: false,
-    },
+    { label: "sin", func: (val) => Math.sin(toRadians(val)), needsInput: true },
+    { label: "cos", func: (val) => Math.cos(toRadians(val)), needsInput: true },
+    { label: "tan", func: (val) => Math.tan(toRadians(val)), needsInput: true },
+    { label: "log", func: (val) => (val > 0 ? Math.log10(val) : "Error"), needsInput: true },
+    { label: "ln", func: (val) => (val > 0 ? Math.log(val) : "Error"), needsInput: true },
+    { label: "√", func: (val) => (val >= 0 ? Math.sqrt(val) : "Error"), needsInput: true },
+    { label: "x²", func: (val) => Math.pow(val, 2), needsInput: true },
+    { label: "π", func: () => Math.PI, needsInput: false },
+    { label: "e", func: () => Math.E, needsInput: false },
   ];
 
   const handleScientificClick = (funcObj) => {
@@ -109,7 +72,7 @@ const Calculator = () => {
       } else {
         setInput(result.toString());
       }
-    } catch (error) {
+    } catch {
       setInput("Error");
     }
   };
@@ -121,28 +84,21 @@ const Calculator = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      {/* Bubbles Background */}
       <div className={styles.bubbles}>
         {Array.from({ length: 10 }).map((_, i) => (
           <span key={i}></span>
         ))}
       </div>
 
-      {/* Animated Heading */}
       <motion.h1
         className={styles.heading}
         animate={{ y: [0, -10, 0] }}
-        transition={{
-          repeat: Infinity,
-          duration: 2,
-          ease: "easeInOut",
-        }}
+        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
       >
         My Scientific Calculator
       </motion.h1>
 
       <div className={styles.calculatorWrapper}>
-        {/* Basic Calculator */}
         <motion.div
           className={styles.calculator}
           initial={{ scale: 0.8, opacity: 0 }}
@@ -215,7 +171,6 @@ const Calculator = () => {
           </div>
         </motion.div>
 
-        {/* Scientific Panel */}
         <AnimatePresence>
           {showScientific && (
             <motion.div
@@ -238,7 +193,6 @@ const Calculator = () => {
                 ))}
               </motion.div>
 
-              {/* Footer Below Scientific Panel */}
               <motion.div
                 className={styles.footerInfo}
                 initial={{ opacity: 0, y: 20 }}
