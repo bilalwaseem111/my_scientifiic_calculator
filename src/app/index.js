@@ -3,6 +3,7 @@ import Calculator from '../components/Calculator';
 import LinkedInLogo from '../components/LinkedInLogo';
 import styles from '../styles/globals.css';
 
+
 export default function Home() {
   return (
     <div className={styles.container}>

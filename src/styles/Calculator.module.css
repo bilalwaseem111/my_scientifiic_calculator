@@ -1,17 +1,13 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-    color: #fff;
+.wrapper {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
   }
   
-  /* 3D Bubble Animation */
   .bubbles {
     position: absolute;
     top: 0;
@@ -43,16 +39,6 @@ body {
       transform: translateY(-1000px) rotate(720deg);
       opacity: 0;
     }
-  }
-  
-  .wrapper {
-    position: relative;
-    z-index: 1;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
   }
   
   .heading {
@@ -163,7 +149,6 @@ body {
     transform: scale(1.05);
   }
   
-  /* NEW Footer Container below the scientific panel */
   .footerInfo {
     margin-top: 20px;
     display: flex;
@@ -189,12 +174,5 @@ body {
   .linkedinLogo:hover {
     transform: scale(1.3);
     filter: drop-shadow(0 0 10px #0077b5);
-  }
-  
-  /* REMOVE old left positioning */
-  .madeBy,
-  .linkedinIcon,
-  .leftIconPlaceholder {
-    display: none;
   }
   

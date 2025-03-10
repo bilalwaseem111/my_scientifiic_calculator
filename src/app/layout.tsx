@@ -1,4 +1,6 @@
-import './globals.css'; // make sure this file exists
+// import './globals.css'; // make sure this file exists
+import "../styles/globals.css";
+
 import { Geist, Geist_Mono } from 'next/font/google';
 import type { Metadata } from 'next';
 
