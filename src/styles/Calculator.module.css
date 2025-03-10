@@ -51,6 +51,7 @@
     text-transform: uppercase;
   }
   
+  /* ...keep the rest of your comp
   .calculatorWrapper {
     display: flex;
     flex-direction: row;
